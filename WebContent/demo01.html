@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/jquery-confirm.less">
+<script src="js/jquery-confirm.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	/* 
+		获取页面中的元素
+			|--原生js有三个方法
+			|--jquery中是通过选择器来获取页面中的元素
+			|--jquery对象建议用$开头进行命名
+			|--jquery对象和dom对象不能互相调用属性和方法
+			|--dom转换为jquery:	$(dom对象)
+			|--jquery转换为dom:	jquery[索引]
+				|--1.通过索引获取指定的jquery对象
+				|--2.并将jquery对象转换成dom对象
+			|--如果想获取指定索引的jquery对象:$(jquery对象).	
+			|--jquery中页面加载使用$(function(){});
+				|--对比原生页面加载有如下特点
+					|--1.jquery页面加载调用优先于原生
+					|--2.原生页面加载如果写多个只会调用最后一个,jquery中写多少调用多少
+	 */
+	window.onload = function() {
+		var element = document.getElementById("one");
+		alert(element);
+		var ele1 = jQuery("#one")
+		alert(ele1);
+		var ele2 = $("#one")
+		alert(ele2);
+
+		//将dom对象转换为jquery对象
+		var $jqObj = $(element);
+		alert($jqObj);
+		//将jquery对象转换成dom对象
+
+		var domObj = $("#one")[0];
+		alert(domObj);
+
+		$($(input)[1]).val("999");
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="one">
+</body>
+</html>
